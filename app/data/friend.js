@@ -1,5 +1,5 @@
 //array that holds all the 'friends' that have taken the survey
-//initially started with 'dummy' data
+//initialize starting with 'dummy' data
 var friendList = [
   {
     name: 'Stefanie Ding',

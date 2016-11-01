@@ -7,11 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <!-- materialize icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="../css/style.css" rel="stylesheet">
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery.js"></script>
   <title>Friend Finder - Survey</title>
 </head>
 <body>
@@ -41,7 +39,7 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            
+
             <h5><strong>Question 2</strong></h5>
             <p>I see myself as critical, quarrelsome.</p>
             <select data-placeholder="" class="browser-default" id="q2" required>
@@ -96,7 +94,6 @@
               <option value="4">4</option>
               <option value="5">5 (Strongly Agree)</option>
             </select>
-            <label>Select One</label>
 
             <h5><strong>Question 7</strong></h5>
             <p>I see myself as sympathetic.</p>
@@ -142,42 +139,60 @@
                 <option value="5">5 (Strongly Agree)</option>
             </select>
             <br>
-              <a href='' class="waves-effect waves-light btn cyan lighten-1" id="submitBtn">Submit</a>
+            <button type="submit" class="waves-effect waves-light btn cyan lighten-1" id="submitBtn">Submit</button>
           </form>
         </div>
     </div>
     <div class='col s4'>
       <p><a href='/api/friends'>API Friends List</a> | <a href='https://github.com/StefanieDing/friend-finder' target= '_blank'>GitHub Repo</a></p>
     </div>
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1"></a>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Meet Your New BFF</h4>
+          <img id="matchPic" src="" alt="">
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">X</a>
+        </div>
+      </div>
   </div>
 </body>
 </html>
 
+ <!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
 <!-- Grabs information and sends it to server -->
 <script type="text/javascript">
 
   $("#submitBtn").on("click", function(){
-
-    //make sure that everything is filled in
-    function validateForm(){
+    //form validation
+    function validateForm() {
       var isValid = true;
-
       $('.validate').each(function(){
-        if($(this).val === ''){
+        if($(this).val()===''){
           isValid = false;
         }
       });
 
       $('.browser-default').each(function(){
-        if($(this).val === ''){
+        if($(this).val() === ''){
           isValid = false;
         }
       });
+
       return isValid;
     }
 
-    //if everything was filled
+    //if everything is filled
     if(validateForm() == true){
+
+    //creates a new friend from the values submitted
       var newFriend = {
       name: $('#name').val().trim(),
       profilePic: $('#photo').val().trim(),
@@ -195,16 +210,36 @@
       ]
       };
 
-      console.log(newFriend);
-
+      //Grabs current URL of website
       var currentURL = window.location.origin;
 
-      $.post(currentURL + "/api/friends", newFriend,
-      function(data){
-          alert("You were added. Wait while we find you a match!");
+      //AJAX posts the data to friends API.
+      $.post(currentURL + "/api/friends", newFriend, function(data){
+        // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+        $("#matchName").text(data.name);
+        $('#matchPic').attr("src", data.profilePic);
+
+        // Show the modal with the best match
+        $('.modal-trigger').leanModal();
       });
     } else{
-      alert("Please fill all fields before submitting!")
+      alert("Please fill out all fields before submitting survey!")
     }
+
+      //clears value after submission
+      $('#name').val('');
+      $('#photo').val('');
+      $('#q1').val('');
+      $('#q2').val('');
+      $('#q3').val('');
+      $('#q4').val('');
+      $('#q5').val('');
+      $('#q6').val('');
+      $('#q7').val('');
+      $('#q8').val('');
+      $('#q9').val('');
+      $('#q10').val('');
+
     return false;
   });
+  </script>
