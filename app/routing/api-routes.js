@@ -37,9 +37,8 @@ module.exports = function(app){
     //return bestMatch data
     var bff = friendList[bestMatch];
     res.json(bff);
-    // console.log(bff);
+
     //pushes new submission into the friendsList array
     friendList.push(req.body);
-
   });
 };
