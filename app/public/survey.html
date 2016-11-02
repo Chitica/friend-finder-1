@@ -30,8 +30,8 @@
                 <label class='active' for="name">Link to Photo Image (required)</label>
                 <h5><strong>Question 1</strong></h5>
                 <p>I see myself as extroverted, enthusiastic.</p>
-                <select data-placeholder="" class="browser-default validate" id="q1">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q1">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -40,8 +40,8 @@
                 </select>
                 <h5><strong>Question 2</strong></h5>
                 <p>I see myself as critical, quarrelsome.</p>
-                <select data-placeholder="" class="browser-default validate" id="q2">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q2">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -50,8 +50,8 @@
                 </select>
                 <h5><strong>Question 3</strong></h5>
                 <p>I see myself as dependable, self-disciplined.</p>
-                <select data-placeholder="" class="browser-default validate" id="q3">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q3">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -60,8 +60,8 @@
                 </select>
                 <h5><strong>Question 4</strong></h5>
                 <p>I see myself as anxious, easily upset.</p>
-                <select data-placeholder="" class="browser-default validate" id="q4">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q4">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -70,8 +70,8 @@
                 </select>
                 <h5><strong>Question 5</strong></h5>
                 <p>I see myself as open to new experiences.</p>
-                <select data-placeholder="" class="browser-default validate" id="q5">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q5">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -80,8 +80,8 @@
                 </select>
                 <h5><strong>Question 6</strong></h5>
                 <p>I see myself as reserved, quiet</p>
-                <select data-placeholder="" class="browser-default validate" id="q6">
-                    <option value="" disabled selected>Choose an Option</option>
+                <select data-placeholder="" class="browser-default" id="q6">
+                    <option value="">Choose an Option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -90,8 +90,8 @@
                 </select>
                 <h5><strong>Question 7</strong></h5>
                 <p>I see myself as sympathetic.</p>
-                <select data-placeholder="" class="browser-default validate" id="q7">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q7">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -100,8 +100,8 @@
                 </select>
                 <h5><strong>Question 8</strong></h5>
                 <p>I see myself as disorganized.</p>
-                <select data-placeholder="" class="browser-default validate" id="q8">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q8">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -110,8 +110,8 @@
                 </select>
                 <h5><strong>Question 9</strong></h5>
                 <p>I see myself as calm, emotionally stable.</p>
-                <select data-placeholder="" class="browser-default validate" id="q9">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q9">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -120,8 +120,8 @@
                 </select>
                 <h5><strong>Question 10</strong></h5>
                 <p>I see myself as practical, conventional.</p>
-                <select data-placeholder="" class="browser-default validate" id="q10">
-                    <option value="" disabled selected>Choose an option</option>
+                <select data-placeholder="" class="browser-default" id="q10">
+                    <option value="">Choose an option</option>
                     <option value="1">1 (Strongly Disagree)</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -165,7 +165,7 @@ $(document).ready(function() {
             });
 
             $('.browser-default').each(function() {
-                if ($(this).val() === ''){
+                if ($(this).val() === ""){
                     isValid = false;
                 }
             });
@@ -220,7 +220,7 @@ $(document).ready(function() {
             $('#q9').val("");
             $('#q10').val("");
         } else {
-            alert("Please fill out all fields before submitting survey!")
+            alert("Please fill out ALL fields before submitting survey!")
         }
 
         // return false;
