@@ -33,4 +33,4 @@ Survey
 
 ## Authors
 
-* **Stefanie Ding** - *JS/Node.js* - [Stefanie Ding](https://github.com/StefanieDing)
+* **Stefanie Ding** - *HTML/JS/Node.js* - [Stefanie Ding](https://github.com/StefanieDing)
